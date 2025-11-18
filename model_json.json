@@ -1,0 +1,161 @@
+{
+    "ModelName": "SentimentAnalysis",
+    "architechture": {
+        "architechture_type": "Sequential",
+        "layers": {
+            "layer1": {
+                "layer_defination": {
+                    "layer_name": "Embedding",
+                    "layer_attrs": {
+                        "embedding_dim": 100,
+                        "num_embeddings": 100000
+                    }
+                },
+                "activation": null
+            },
+            "layer3": {
+                "layer_defination": {
+                    "layer_name": "MultiheadAttention",
+                    "layer_attrs": {
+                        "embed_dim": 100,
+                        "head_dim": 10,
+                        "kdim": 100,
+                        "num_heads": 10,
+                        "vdim": 100
+                    }
+                },
+                "activation": null
+            },
+            "layer4": {
+                "layer_defination": {
+                    "layer_name": "NonDynamicallyQuantizableLinear",
+                    "layer_attrs": {
+                        "in_features": 100,
+                        "out_features": 100
+                    }
+                },
+                "activation": null
+            },
+            "layer5": {
+                "layer_defination": {
+                    "layer_name": "Linear",
+                    "layer_attrs": {
+                        "in_features": 100,
+                        "out_features": 200
+                    }
+                },
+                "activation": "LeakyReLU"
+            },
+            "layer6": {
+                "layer_defination": {
+                    "layer_name": "Linear",
+                    "layer_attrs": {
+                        "in_features": 200,
+                        "out_features": 400
+                    }
+                },
+                "activation": "LeakyReLU"
+            },
+            "layer7": {
+                "layer_defination": {
+                    "layer_name": "Linear",
+                    "layer_attrs": {
+                        "in_features": 400,
+                        "out_features": 800
+                    }
+                },
+                "activation": "LeakyReLU"
+            },
+            "layer8": {
+                "layer_defination": {
+                    "layer_name": "Linear",
+                    "layer_attrs": {
+                        "in_features": 800,
+                        "out_features": 400
+                    }
+                },
+                "activation": "LeakyReLU"
+            },
+            "layer9": {
+                "layer_defination": {
+                    "layer_name": "Linear",
+                    "layer_attrs": {
+                        "in_features": 400,
+                        "out_features": 200
+                    }
+                },
+                "activation": "LeakyReLU"
+            },
+            "layer10": {
+                "layer_defination": {
+                    "layer_name": "Linear",
+                    "layer_attrs": {
+                        "in_features": 200,
+                        "out_features": 100
+                    }
+                },
+                "activation": "LeakyReLU"
+            },
+            "layer11": {
+                "layer_defination": {
+                    "layer_name": "Linear",
+                    "layer_attrs": {
+                        "in_features": 100,
+                        "out_features": 50
+                    }
+                },
+                "activation": "LeakyReLU"
+            },
+            "layer12": {
+                "layer_defination": {
+                    "layer_name": "Linear",
+                    "layer_attrs": {
+                        "in_features": 50,
+                        "out_features": 25
+                    }
+                },
+                "activation": "LeakyReLU"
+            },
+            "layer13": {
+                "layer_defination": {
+                    "layer_name": "Linear",
+                    "layer_attrs": {
+                        "in_features": 25,
+                        "out_features": 12
+                    }
+                },
+                "activation": "LeakyReLU"
+            },
+            "layer14": {
+                "layer_defination": {
+                    "layer_name": "Linear",
+                    "layer_attrs": {
+                        "in_features": 12,
+                        "out_features": 6
+                    }
+                },
+                "activation": "LeakyReLU"
+            },
+            "layer15": {
+                "layer_defination": {
+                    "layer_name": "Linear",
+                    "layer_attrs": {
+                        "in_features": 6,
+                        "out_features": 3
+                    }
+                },
+                "activation": "LeakyReLU"
+            },
+            "layer16": {
+                "layer_defination": {
+                    "layer_name": "Linear",
+                    "layer_attrs": {
+                        "in_features": 3,
+                        "out_features": 1
+                    }
+                },
+                "activation": "Sigmoid"
+            }
+        }
+    }
+}

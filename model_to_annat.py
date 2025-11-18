@@ -1,7 +1,8 @@
 import torch.nn as nn
+import sample_model
 import json
 
-def to_json(model, f):
+def to_annat(model, f):
  activations_tuple = (
     nn.ReLU,
     nn.ReLU6,
@@ -37,7 +38,14 @@ def to_json(model, f):
  for layer in architechture:
   try:
    if not isinstance(layer, activations_tuple):
-    layers.update({f'layer{layers_count - activations}':{'layer_defination':str(layer), 'activation':str(architechture[layers_count]) if isinstance(architechture[layers_count], activations_tuple) else None}})
+    attrs = {}
+
+    for attribute in dir(layer):
+     if str(type(getattr(layer, attribute))) == "<class 'int'>" and attribute != '_version':
+      attrs.update({attribute:getattr(layer, attribute)})
+    
+    if attrs:
+     layers.update({f'layer{layers_count - activations}':{'layer_defination':{"layer_name":type(layer).__name__, "layer_attrs":attrs}, 'activation':type(architechture[layers_count]).__name__ if isinstance(architechture[layers_count], activations_tuple) else None}})
   
    else:
     activations += 1
@@ -47,4 +55,10 @@ def to_json(model, f):
   except IndexError:
    pass
 
-  json.dump({'ModelName':model_name, 'architechture':{'architechture_type':architechture_type, 'layers':layers}}, f, indent = 4)
+ json.dump({'ModelName':model_name, 'architechture':{'architechture_type':architechture_type, 'layers':layers}}, f, indent = 4)
+
+
+model = sample_model.model
+
+with open('model_json.json', 'w') as  f:
+ to_annat(model, f)
