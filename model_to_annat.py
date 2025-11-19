@@ -34,6 +34,7 @@ def to_annat(model, f):
  layers = {}
  layers_count = 1
  layers_with_no_attribute = 0
+ activations = 0
 
  for layer in architechture:
   try:
@@ -45,10 +46,13 @@ def to_annat(model, f):
 
    if not isinstance(layer, activations_tuple):
     if attrs:
-     layers.update({f'layer{layers_count - layers_with_no_attribute}':{'layer_defination':{"layer_name":type(layer).__name__, "layer_attrs":attrs}, 'activation':type(architechture[layers_count]).__name__ if isinstance(architechture[layers_count], activations_tuple) else None}})
-    
+     layers.update({f'layer{layers_count - layers_with_no_attribute - activations}':{'layer_defination':{"layer_name":type(layer).__name__, "layer_attrs":attrs}, 'activation':type(architechture[layers_count]).__name__ if isinstance(architechture[layers_count], activations_tuple) else None}})
+     
     else:
      layers_with_no_attribute += 1
+
+   else:
+    activations += 1
 
   except IndexError:
    pass

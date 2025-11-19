@@ -46,11 +46,31 @@
                 },
                 "activation": "LeakyReLU"
             },
-            "layer6": {
+            "layer5": {
                 "layer_defination": {
                     "layer_name": "Linear",
                     "layer_attrs": {
                         "in_features": 200,
+                        "out_features": 400
+                    }
+                },
+                "activation": "LeakyReLU"
+            },
+            "layer6": {
+                "layer_defination": {
+                    "layer_name": "Linear",
+                    "layer_attrs": {
+                        "in_features": 400,
+                        "out_features": 800
+                    }
+                },
+                "activation": "LeakyReLU"
+            },
+            "layer7": {
+                "layer_defination": {
+                    "layer_name": "Linear",
+                    "layer_attrs": {
+                        "in_features": 800,
                         "out_features": 400
                     }
                 },
@@ -61,32 +81,12 @@
                     "layer_name": "Linear",
                     "layer_attrs": {
                         "in_features": 400,
-                        "out_features": 800
-                    }
-                },
-                "activation": "LeakyReLU"
-            },
-            "layer10": {
-                "layer_defination": {
-                    "layer_name": "Linear",
-                    "layer_attrs": {
-                        "in_features": 800,
-                        "out_features": 400
-                    }
-                },
-                "activation": "LeakyReLU"
-            },
-            "layer12": {
-                "layer_defination": {
-                    "layer_name": "Linear",
-                    "layer_attrs": {
-                        "in_features": 400,
                         "out_features": 200
                     }
                 },
                 "activation": "LeakyReLU"
             },
-            "layer14": {
+            "layer9": {
                 "layer_defination": {
                     "layer_name": "Linear",
                     "layer_attrs": {
@@ -96,7 +96,7 @@
                 },
                 "activation": "LeakyReLU"
             },
-            "layer16": {
+            "layer10": {
                 "layer_defination": {
                     "layer_name": "Linear",
                     "layer_attrs": {
@@ -106,7 +106,7 @@
                 },
                 "activation": "LeakyReLU"
             },
-            "layer18": {
+            "layer11": {
                 "layer_defination": {
                     "layer_name": "Linear",
                     "layer_attrs": {
@@ -116,7 +116,7 @@
                 },
                 "activation": "LeakyReLU"
             },
-            "layer20": {
+            "layer12": {
                 "layer_defination": {
                     "layer_name": "Linear",
                     "layer_attrs": {
@@ -126,7 +126,7 @@
                 },
                 "activation": "LeakyReLU"
             },
-            "layer22": {
+            "layer13": {
                 "layer_defination": {
                     "layer_name": "Linear",
                     "layer_attrs": {
@@ -136,7 +136,7 @@
                 },
                 "activation": "LeakyReLU"
             },
-            "layer24": {
+            "layer14": {
                 "layer_defination": {
                     "layer_name": "Linear",
                     "layer_attrs": {
@@ -146,7 +146,7 @@
                 },
                 "activation": "LeakyReLU"
             },
-            "layer26": {
+            "layer15": {
                 "layer_defination": {
                     "layer_name": "Linear",
                     "layer_attrs": {
