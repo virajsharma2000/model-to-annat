@@ -1,7 +1,6 @@
 {
     "ModelName": "SentimentAnalysis",
     "architechture": {
-        "architechture_type": "Sequential",
         "layers": {
             "layer1": {
                 "layer_defination": {
