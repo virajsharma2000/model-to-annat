@@ -33,30 +33,30 @@ def to_annat(model, f):
 
  layers = {}
  layers_count = 1
- activations = 0
+ layers_with_no_attribute = 0
 
  for layer in architechture:
   try:
+   attrs = {}
+
+   for attribute in dir(layer):
+    if str(type(getattr(layer, attribute))) == "<class 'int'>" and attribute != '_version':
+     attrs.update({attribute:getattr(layer, attribute)})
+
    if not isinstance(layer, activations_tuple):
-    attrs = {}
-
-    for attribute in dir(layer):
-     if str(type(getattr(layer, attribute))) == "<class 'int'>" and attribute != '_version':
-      attrs.update({attribute:getattr(layer, attribute)})
-    
     if attrs:
-     layers.update({f'layer{layers_count - activations}':{'layer_defination':{"layer_name":type(layer).__name__, "layer_attrs":attrs}, 'activation':type(architechture[layers_count]).__name__ if isinstance(architechture[layers_count], activations_tuple) else None}})
-  
-   else:
-    activations += 1
-
-   layers_count += 1
+     layers.update({f'layer{layers_count - layers_with_no_attribute}':{'layer_defination':{"layer_name":type(layer).__name__, "layer_attrs":attrs}, 'activation':type(architechture[layers_count]).__name__ if isinstance(architechture[layers_count], activations_tuple) else None}})
+    
+    else:
+     layers_with_no_attribute += 1
 
   except IndexError:
    pass
+  
+  layers_count += 1
 
  json.dump({'ModelName':model_name, 'architechture':{'architechture_type':architechture_type, 'layers':layers}}, f, indent = 4)
-
+ 
 
 model = sample_model.model
 
